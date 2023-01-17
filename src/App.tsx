@@ -1,11 +1,11 @@
 import React from "react";
-import Avatar from "./Avatar";
 import "./App.css";
+import AvatarInput from "./AvatarInput";
 
 function App() {
   return (
     <div className="App">
-      <Avatar name="Ümit        " size={96} initials="   " />
+      <AvatarInput />
     </div>
   );
 }

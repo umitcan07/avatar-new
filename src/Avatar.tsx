@@ -4,15 +4,14 @@ import colors from "./colors";
 function Avatar(props: { name?: string; size?: number; initials?: string }) {
   // set default values for props
 
-  let name = props.name || "";
+  let name = props.name || "?";
   let size = props.size || 32;
   let initials = props.initials || "";
 
   name = name.trim();
   initials = initials.trim();
   initials = initials.length > 2 ? initials.slice(0, 2) : initials;
-  let init: string = "W"; // default to "W" if no name or initials
-  init = initials ? initials : name.slice(0, 2).toUpperCase();
+  let init = initials ? initials.toUpperCase() : name.slice(0, 2).toUpperCase();
 
   return (
     <div
