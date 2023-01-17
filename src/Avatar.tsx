@@ -1,17 +1,29 @@
 import hash from "./hash";
 import colors from "./colors";
 
-function Avatar(props: { name?: string; size?: number; initials?: string }) {
+function Avatar(props: { name?: string; size?: number; display?: string }) {
   // set default values for props
 
-  let name = props.name || "?";
+  let name = (props.name || "?").trim().toUpperCase();
   let size = props.size || 32;
-  let initials = props.initials || "";
+  let display = (props.display || "").trim().toUpperCase();
 
-  name = name.trim();
-  initials = initials.trim();
-  initials = initials.length > 2 ? initials.slice(0, 2) : initials;
-  let init = initials ? initials.toUpperCase() : name.slice(0, 2).toUpperCase();
+  // if no initials are provided, use the initials of the name up to 2 characters,
+  // if the name is shorter than 2 words then use the first two letters of the name.
+
+  if (!display) {
+    if (name.split(" ").length < 2) {
+      display = name.substr(0, 2);
+    } else {
+      display = name
+        .split(" ")
+        .map((word) => word[0])
+        .join("")
+        .substr(0, 2);
+    }
+  } else {
+    display = display.substr(0, 2);
+  }
 
   return (
     <div
@@ -33,7 +45,7 @@ function Avatar(props: { name?: string; size?: number; initials?: string }) {
         lineHeight: "24/14em",
       }}
     >
-      {init}
+      {display}
     </div>
   );
 }

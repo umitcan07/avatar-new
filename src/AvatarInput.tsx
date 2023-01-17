@@ -1,11 +1,11 @@
 import Avatar from "./Avatar";
 import React, { useState } from "react";
-import "./AvatarInput.css";
+import "./styles/AvatarInput.css";
 
 function AvatarInput() {
   const [size, setSize] = useState(64);
   const [name, setName] = useState("A");
-  const [initials, setInitials] = useState("");
+  const [display, setDisplay] = useState("");
 
   return (
     <div className="AvatarInput">
@@ -31,10 +31,10 @@ function AvatarInput() {
       <input
         name="initials"
         type="text"
-        onChange={(event) => setInitials(event.target.value)}
+        onChange={(event) => setDisplay(event.target.value)}
       />
       <br></br>
-      <Avatar size={size} name={name} initials={initials} />
+      <Avatar size={size} name={name} display={display} />
     </div>
   );
 }
