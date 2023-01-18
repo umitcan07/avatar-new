@@ -17,9 +17,7 @@ function AvatarInput() {
         onChange={(event) => setName(event.target.value)}
       />
       <br></br>
-      <label style={{ width: 64 }} htmlFor="number">
-        Size:
-      </label>
+      <label htmlFor="number">Size:</label>
       <input
         name="number"
         type="number"

@@ -42,7 +42,7 @@ function Avatar(props: { name?: string; size?: number; display?: string }) {
         fontSize: `${(size * 14) / 32}px`,
         fontWeight: "500",
         letterSpacing: "-0.03em",
-        lineHeight: "24/14em",
+        lineHeight: 1,
       }}
     >
       {display}
